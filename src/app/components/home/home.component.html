@@ -1,0 +1,87 @@
+<section id="home" class="container-fluid">
+  <div class="title mb-4 flex justify-content-between">
+    <h3 class="title-text text-gray-o-800">{{ "dashboard" | titlecase }}</h3>
+    <a href="#" class="Gene-Rep-btn btn mb-[2px] mt-[1px] tracking-[.18px] rounded-[.2rem] btn-primary btn-sm shadow-[0_.125rem_.25rem_0_rgba(58,59,69,.2)_!important;]">
+      <i class="fas fa-download fa-sm text-white-50"></i>
+      {{ "generate report" | titlecase }}
+    </a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-xl-3 mb-4 px-[.75rem] h-100" *ngFor="let item of statusDescriptionCol">
+      <div class="card status-card border-0 border-left border-{{ item.borderColor }}-c py-2 shadow-[0_.15rem_3.75rem_0_rgba(58,59,69,.15)_!important]">
+        <div class="card-body mr-[1px]">
+          <div class="d-flex">
+            <div class="text col me-2">
+              <div class="title text-[.7rem] fw-bold text-{{ item.borderColor }} mb-1">{{ item.title | uppercase}}</div>
+              <h5 *ngIf="!item.per" class="description mb-0 font-medium text-gray-o-800">{{ item.detail }}</h5>
+              <div class="row mx-0" *ngIf="item.per">
+                <div class="col-auto p-0">
+                  <h5 class="description me-3 mb-0 font-medium text-gray-o-800">{{ item.detail }}</h5>
+                </div>
+                <div class="col p-0 align-self-center">
+                  <div class="progress h-[.5rem] me-2">
+                    <div class="progress-bar bg-info w-50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="icon col-auto d-flex align-items-center">
+              <i class="fas {{ item.icon }} fa-2x text-gray-o-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="{{ chartItem.col }}" *ngFor="let chartItem of chartsData">
+      <div class="card border-0 mb-4 shadow-[0_.15rem_1.75rem_0_rgba(58,59,69,.15)!important]">
+        <div class="card-header py-3 d-flex justify-content-between px-[20px]">
+          <h6 class="title text-primary font-bold">{{ chartItem.title }}</h6>
+          <div ngbDropdown class="card-dropdown dropdown">
+            <a ngbDropdownToggle href="#" class="toggler-link after:content-none">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-[#d1d3e2]"></i>
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu {{ chartItem.chartId }} mt-[.125rem] border-0 shadow-[0_.15rem_1.75rem_0_rgba(58,59,69,.15)!important]">
+              <div  class="dropdown-header text-[#b7b9cc] text-[0.65rem] font-[500]">DROPDOWN HEADER:</div>
+              <a href="#" class="dropdown-item small">Action</a>
+              <a href="#" class="dropdown-item small">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item small">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="canvas-container" [ngClass]="{'h-[10rem] md:h-[20rem_!important]': chartItem.chartId == 'line-chart', 'h-[15rem] md:h-[calc(20rem-44px)_!important] pt-[1.5rem_!important] pt-2': chartItem.chartId == 'd-chart'}">
+            <canvas id="{{ chartItem.chartId }}" class="p-[9px_20px_!important] h-[100%_!important]"></canvas>
+          </div>
+          <small class="rounded-footer mt-[1.5rem_!important] d-flex justify-content-center" *ngIf="chartItem.chartId == 'd-chart'">
+            <span class="mr-2 text-[#858796]">
+              <i class="fas fa-circle text-[#4e73df]"></i>
+              Direct
+            </span>
+            <span class="mr-2 text-[#858796]">
+              <i class="fas fa-circle text-[#1cc88a]"></i>
+              Social
+            </span>
+            <span class="mr-2 text-[#858796]">
+              <i class="fas fa-circle text-[#36b9cc]"></i>
+              Referral
+            </span>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 mb-[1.5rem]">
+      <app-projects></app-projects>
+    </div>
+    <div class="col-lg-6 mb-[1.5rem]">
+      <app-description></app-description>
+    </div>
+  </div>
+</section>

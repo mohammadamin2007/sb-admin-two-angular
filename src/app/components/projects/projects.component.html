@@ -1,0 +1,26 @@
+<div class="row mx-0 card border-0 mb-4 shadow-[0_.15rem_1.75rem_0_rgba(58,59,69,.15)!important]">
+  <div class="card-header py-3 d-flex justify-content-between px-[20px] border-[1px_solid_#e3e6f0_!important]">
+    <h6 class="title text-primary font-bold">Projects</h6>
+  </div>
+  <div class="card-body">
+    <div class="row me-0 ms-0" *ngFor="let projectItem of projectsList; let i = index">
+      <small class="title font-[500] d-flex justify-content-between mb-2 text-gray-o-500 p-0">
+        {{ projectItem.title | titlecase }}
+        <span class="percent">{{ projectItem.percent == 100? "Complete": projectItem.percent+"%" }}</span>
+      </small>
+      <div class="progress p-0" [ngClass]="{'mb-[1.2rem]': i != projectsList.length-1}">
+        <div class="progress-bar bg-{{ projectItem.bg }}" [ngStyle]="{ 'width': projectItem.percent + '%'}"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row box-color">
+  <div class="col-6 mb-[1.5rem]" *ngFor="let projectBcItem of boxColor">
+    <div class="color-box bg-{{ projectBcItem.bg }} shadow-[0_.15rem_2.75rem_4px_rgba(58,59,69,.15)_!important] rounded-[0.35rem]">
+      <div class="text-container p-[1.25rem] d-flex flex-column">
+        <div class="title" [ngClass]="{'text-white': projectBcItem.bg != 'light', 'text-gray-o-500': projectBcItem.bg == 'light'}">{{ projectBcItem.bg | titlecase }}</div>
+        <small class="rgb" [ngClass]="{'text-white-50': projectBcItem.bg != 'light', 'text-gray-o-500': projectBcItem.bg == 'light'}">{{ projectBcItem.rgb }}</small>
+      </div>
+    </div>
+  </div>
+</div>

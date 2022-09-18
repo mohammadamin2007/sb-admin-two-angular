@@ -1,0 +1,44 @@
+<ul id="side-navbar" class="navbar-nav">
+  <a href="#" class="sidebar-brand mt-[4px] md:mt-[0px_!important] d-flex justify-content-center text-white text:[1rem] font-extrabold">
+    <div class="lg-icon rotate-[-15deg] flex">
+      <i class="fas fa-laugh-wink text-[2.2rem] align-self-center"></i>
+    </div>
+    <div class="brand-text mx-3 d-none d-md-block">
+      {{ "sb admin" | uppercase }}
+      <sup>2</sup>
+    </div>
+  </a>
+
+  <hr class="side-navbar-divider mr-3 ml-3 mt-0 mb-0">
+
+  <li class="nav-item text-white">
+    <a class="nav-link md:p-[1rem_!important] d-flex align-items-center flex-column flex-md-row" routerLink="/" routerLinkActive="active">
+      <i class="fas fa-fw fa-tachometer-alt mb-[4px] md:mb-0"></i>
+      <span class="nav-item-text me-0">{{ "dashboard"| titlecase }}</span>
+    </a>
+  </li>
+
+  <hr class="side-navbar-divider mr-3 ml-3 mt-0 mb-3">
+
+  <div class="flex flex-col" *ngFor="let section of navbarSections">
+    <div class="side-header font-bold text-center text-md-start">{{ section.title | uppercase }}</div>
+
+    <li class="nav-item text-white position-relative" *ngFor="let sections of section.sections">
+      <a href="#" (click)="collapse.toggle()" class="nav-link d-flex align-items-center flex-column flex-md-row position-relative pb-[1.12rem]">
+        <i class="fas fa-fw {{ sections.icon }} mb-[4px] md:mb-0"></i>
+        <span class="nav-item-text me-0 text-[.7rem] md:text-[.85rem_!important]">{{ sections.text | titlecase }}</span>
+        <i class="fa  me-0 pr-[1.2rem] position-absolute end-0 d-none d-md-block" [ngClass]="{'fa-angle-right': sections.toggleCollapse, 'fa-angle-down': !sections.toggleCollapse}" *ngIf="sections.collapse"></i>
+      </a>
+      <div class="collapse collapse-container" #collapse="ngbCollapse" [(ngbCollapse)]="sections.toggleCollapse">
+        <div class="bg-white rounded collapse-content" *ngIf="sections.collapse">
+          <div class="d-flex flex-column" *ngFor="let collapseItem of sections.collapseItem">
+            <div class="collapse-title font-bold">{{ collapseItem.collapseTitle | uppercase }}</div>
+            <a routerLink=""  routerLinkActive="" class="collapse-item" *ngFor="let collapse of collapseItem.items">{{ collapse.text | titlecase }}</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <hr class="side-navbar-divider mr-3 ml-3 mt-0 mb-3">
+  </div>
+
+</ul>

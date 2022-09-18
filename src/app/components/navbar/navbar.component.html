@@ -1,0 +1,91 @@
+<section id="navbar" class="navbar navbar-expand bg-white w-100 mb-4 h-[4.375rem] shadow-[0_1.15rem_3.75rem_0_rgba(58,59,69,.15)]">
+  <a href="#" class="navbar-toggler-customized d-md-none h-[2.5rem] w-[2.5rem] me-3 rounded-circle">
+    <i class="fa fa-bars"></i>
+  </a>
+
+  <form action="#" class="navbar-form d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 max-w-full w-[25rem]">
+    <div class="input-group">
+      <input type="text" class="form-control text-[#6e707e] bg-light focus:shadow-primary-box-shadow text-[.85rem] border-0" placeholder="Search for...">
+      <div class="input-group-text p-0 rounded-[9px]">
+        <button type="button" class="btn btn-primary hover:bg-violet-600 focus:shadow-primary-box-shadow">
+          <i class="fas fa-search fa-sm"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <ul class="navbar-nav ms-auto">
+    <li ngbDropdown class="nav-item mx-1 position-relative">
+      <a ngbDropdownToggle href="#" class="after:content-none nav-link  py-0 h-[4.375rem] flex align-items-center px-[.75rem_!important]">
+        <i class="fas {{ navItem[0].icon }} fa-fw text-[#d1d3e2]"></i>
+        <span class="badge bg-danger position-absolute scale-[.7] origin-top-right right-[.25rem] mt-[-.25rem]">{{ navItem[0].badgeText }}</span>
+      </a>
+      <div ngbDropdownMenu class="dropdown-menu pb-0 pt-0 sm:w-[20rem_!important] end-0 w-[calc(100% - 1.5rem)]">
+        <h6 class="dropdown-header bg-primary border-[1px_solid_#4e73df] py-[0.75rem] text-white font-[500] text-[0.65rem]">ALERTS CENTER</h6>
+        <a *ngFor="let dropItem of dropdownItemsNot; let i = index" href="#" style="border: 1px solid #e3e6f0" class="border-top-0 px-[1.5rem] dropdown-item d-flex align-items-center leading-[1.3rem]">
+          <div class="me-3">
+            <div class="icon-circle bg-{{ dropItem.color }} h-[2.5rem] w-[2.5rem] rounded-circle d-flex align-items-center justify-content-center">
+              <i class="fas fa-{{ dropItem.icon }} text-white"></i>
+            </div>
+          </div>
+          <div class="text">
+            <div class="title text-[80%] text-[#b7b9cc]">{{ dropItem.title }}</div>
+            <div class="description text-[0.85rem]" [ngClass]="{'font-[700]': i == 0, 'font-[400]' : i != 0}">{{ dropItem.text }}</div>
+          </div>
+        </a>
+        <a href="#" class="dropdown-item text-center small pt-[0.5rem] pb-[0.5rem] text-[80%] text-[#b7b9cc]">Show All Alerts</a>
+      </div>
+    </li>
+
+    <li ngbDropdown class="nav-item mx-1 position-relative">
+      <a ngbDropdownToggle href="#" class="after:content-none nav-link  py-0 h-[4.375rem] flex align-items-center px-[.75rem_!important]">
+        <i class="fas {{ navItem[1].icon }} fa-fw text-[#d1d3e2]"></i>
+        <span class="badge bg-danger position-absolute scale-[.7] origin-top-right right-[.25rem] mt-[-.25rem]">{{ navItem[1].badgeText }}</span>
+      </a>
+      <div ngbDropdownMenu class="dropdown-menu pb-0 pt-0 sm:w-[20rem_!important] end-0 w-[calc(100% - 1.5rem)]">
+        <h6 class="dropdown-header bg-primary border-[1px_solid_#4e73df] py-[0.75rem] text-white font-[500] text-[0.65rem]">MESSAGE CENTER</h6>
+        <a *ngFor="let dropIt of dropdownItemsMessage; let i = index" href="#" style="border: 1px solid #e3e6f0; white-space: nowrap" class="overflow-hidden align-items-center border-top-0 px-[1.5rem] dropdown-item d-flex align-items-center leading-[1.3rem]">
+          <div class="me-3">
+            <div class="position-relative icon-circle h-[2.5rem] w-[2.5rem] rounded-circle d-flex align-items-center justify-content-center">
+              <img src="{{ dropIt.icon }}" alt="">
+              <div class="h-[0.75rem] w-[0.75rem] rounded-circle position-absolute bottom-0 end-0" style="border: .125rem solid #fff" [ngStyle]="{'background-color': dropIt.status}"></div>
+            </div>
+          </div>
+          <div class="text">
+            <div class="message sm:w-[13.375rem_!important] w-[10rem] text-truncate text-[0.85rem]" [ngClass]="{'font-[700]': i == 0, 'font-[400]': i != 0}">{{ dropIt.message }}</div>
+            <div class="title text-[80%] text-[#b7b9cc]">{{ dropIt.title }}</div>
+          </div>
+        </a>
+        <a href="#" class="dropdown-item text-center small pt-[0.5rem] pb-[0.5rem] text-[80%] text-[#b7b9cc]">Read More Messages</a>
+      </div>
+    </li>
+
+    <div class="divider w-0 my-auto mx-[1rem]"></div>
+
+    <li ngbDropdown class="nav-item flex align-items-center">
+      <a ngbDropdownToggle href="#" class="after:content-none nav-link px-[.75rem_!important] py-0 flex align-items-center">
+        <span class="nav-link-text me-2 text-gray-500 small d-none d-lg-block">Douglas McGee</span>
+        <img src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_profile.svg" class="w-[2rem] h-[2rem] " alt="Avatar">
+      </a>
+      <div ngbDropdownMenu style="transform: translate(-4px, 1px);" class=" dropdown-menu mt-[.125rem] border-0 shadow-[0_.15rem_1.75rem_0_rgba(58,59,69,.15)!important]">
+        <a href="#" class="dropdown-item text-[0.85rem]">
+          <i class="fas fa-user fa-sm fa-fw me-2 text-[#d1d3e2]"></i>
+          Profile
+        </a>
+        <a href="#" class="dropdown-item text-[0.85rem]">
+          <i class="fas fa-cogs fa-sm fa-fw me-2 text-[#d1d3e2]"></i>
+          Settings
+        </a>
+        <a href="#" class="dropdown-item text-[0.85rem]">
+          <i class="fas fa-list fa-sm fa-fw me-2 text-[#d1d3e2]"></i>
+          Activity Log
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item text-[0.85rem]">
+          <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-[#d1d3e2]"></i>
+          LogOut
+        </a>
+      </div>
+    </li>
+  </ul>
+</section>

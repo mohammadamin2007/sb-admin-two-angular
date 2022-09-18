@@ -1,0 +1,109 @@
+#side-navbar{
+  @media (min-width: 768px) {
+    width: 14rem !important;
+  }
+  width: 7.3rem;
+  min-height: 100%;
+  background-color: #4e73df;
+  background-image: linear-gradient(180deg,#4e73df 30%,#224abe 100%);
+  background-size: cover;
+  .sidebar-brand{
+    height: 4.375rem;
+    padding: 1.5rem 1rem;
+    letter-spacing: .05rem;
+    .lg-icon{
+      .fas{
+        @media (min-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  .side-navbar-divider{
+    border: 1px solid rgba(255,255,255,.15);
+
+  }
+
+  .nav-item{
+    .nav-link{
+      color: rgba(255,255,255,.4);
+      padding: 1.18rem 1rem;
+      width: 100%;
+      @media (min-width: 768px) {
+        width: 14rem;
+      }
+      i:first-child, i:last-child{
+        margin-right: 0;
+        font-size: 1.1rem;
+        @media (min-width: 768px) {
+          font-size: .85rem;
+          margin-right: 0.5rem !important;
+        }
+      }
+      i:last-child{
+        margin-right: 0!important;
+      }
+      span{
+        color: rgba(255,255,255,.8);
+        font-size: .7rem;
+        margin-right: 0;
+        @media (min-width: 768px) {
+          font-size: .85rem;
+          margin-right: 0.5rem !important;
+        }
+      }
+    }
+    .nav-link.active{
+      .fas{
+        color: white;
+      }
+      span{
+        color: white;
+      }    }
+    .nav-link:focus{
+      .fas{
+        color: white;
+      }
+      span{
+        color: white;
+      }
+    }
+    .nav-link:hover{
+      .fas{
+        color: white;
+      }
+      span{
+        color: white;
+      }
+    }
+    .collapse-container{
+      margin: 0 1rem 1rem;
+      .collapse-content{
+        padding: 0.5rem 0;
+        min-width: 10rem;
+        font-size: .85rem;
+        .collapse-title{
+          padding: 0.5rem 1.5rem;
+          font-size: .65rem;
+          color: #b7b9cc;
+        }
+        .collapse-item{
+          padding: 0.5rem 1rem;
+          margin: 0 0.5rem;
+          color: #3a3b45;
+          border-radius: 0.35rem;
+        }
+        .collapse-item:hover{
+          background-color: #eaecf4;
+        }
+      }
+    }
+  }
+
+
+  .side-header{
+    color: rgba(255,255,255,.4);
+    padding: 0 1rem;
+    font-size: .65rem;
+  }
+}

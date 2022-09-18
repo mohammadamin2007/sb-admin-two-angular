@@ -1,0 +1,22 @@
+#home{
+  .row{
+    .border-left{
+      border-left: .25rem solid!important
+    }
+    .border-primary-c{
+      border-left-color: #4e73df !important;
+    }
+    .border-success-c{
+      border-left-color: #1cc88a !important;
+    }
+    .border-info-c{
+      border-left-color: #36b9cc !important;
+    }
+    .border-warning-c{
+      border-left-color: #f6c23e !important;
+    }
+    .dropdown-menu.line-chart{
+      transform: translate3d(-151px, 25px, 0px) !important;
+    }
+  }
+}
